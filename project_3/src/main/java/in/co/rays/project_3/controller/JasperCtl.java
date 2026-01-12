@@ -1,5 +1,7 @@
 package in.co.rays.project_3.controller;
+
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
@@ -40,12 +42,13 @@ public class JasperCtl extends BaseCtl {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		try {
-System.out.println("wertyu");
+			System.out.println("wertyu");
 			ResourceBundle rb = ResourceBundle.getBundle("in.co.rays.project_3.bundle.system");
+			InputStream jrxmlStream = getClass().getClassLoader().getResourceAsStream("reports/Chaitanya.jrxml");
 			System.out.println("wertyuio111ss");
 			/* Compilation of jrxml file */
-			JasperReport jasperReport = JasperCompileManager.compileReport(rb.getString("jasperctl"));
-System.out.println("wertyuio");
+			JasperReport jasperReport = JasperCompileManager.compileReport(jrxmlStream);
+			System.out.println("wertyuio");
 			HttpSession session = request.getSession(true);
 
 			UserDTO dto = (UserDTO) session.getAttribute("user");
