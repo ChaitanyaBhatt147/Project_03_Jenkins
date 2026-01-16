@@ -29,18 +29,25 @@ public final class ModelFactory {
 		return mFactory;
 	}
 
-	public ProductModelInt getProductModel() {
-		ProductModelInt productModel = (ProductModelInt) modelCache.get("productModel");
-		if (productModel == null) {
+	public HostelRoomModelInt getHostelRoomModel() {
+
+		HostelRoomModelInt hostelRoomModel =
+				(HostelRoomModelInt) modelCache.get("hostelRoomModel");
+
+		if (hostelRoomModel == null) {
+
 			if ("Hibernate".equals(DATABASE)) {
-				productModel = new ProductModelHibImp();
+				hostelRoomModel = new HostelRoomModelHibImpl();
 			}
+
 			if ("JDBC".equals(DATABASE)) {
-				productModel = new ProductModelHibImp();
+				hostelRoomModel = new HostelRoomModelJDBCImpl();
 			}
-			modelCache.put("productModel", productModel);
+
+			modelCache.put("hostelRoomModel", hostelRoomModel);
 		}
-		return productModel;
+
+		return hostelRoomModel;
 	}
 
 	public MarksheetModelInt getMarksheetModel() {

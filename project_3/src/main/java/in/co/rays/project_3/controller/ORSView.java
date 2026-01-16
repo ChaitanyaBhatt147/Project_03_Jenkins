@@ -68,9 +68,9 @@ public interface ORSView {
 
 	public String SUBJECT_LIST_VIEW = PAGE_FOLDER + "/SubjectListView.jsp";
 
-	public String PRODUCT_VIEW = PAGE_FOLDER + "/ProductView.jsp";
+	public String HOSTEL_ROOM_VIEW = "/jsp/HostelRoomView.jsp";
 
-	public String PRODUCT_LIST_VIEW = PAGE_FOLDER + "/ProductListView.jsp";
+	public String HOSTEL_ROOM_LIST_VIEW = "/jsp/HostelRoomListView.jsp";
 
 	public String ERROR_CTL = APP_CONTEXT + "/ErrorCtl";
 
@@ -116,9 +116,9 @@ public interface ORSView {
 
 	public String TIMETABLE_LIST_CTL = APP_CONTEXT + "/ctl/TimeTableListCtl";
 
-	public String PRODUCT_CTL = APP_CONTEXT + "/ctl/ProductCtl";
+	public String HOSTEL_ROOM_CTL = APP_CONTEXT + "/ctl/HostelRoomCtl";
 
-	public String PRODUCT_LIST_CTL = APP_CONTEXT + "/ctl/ProductListCtl";
+	public String HOSTEL_ROOM_LIST_CTL = APP_CONTEXT + "/ctl/HostelRoomListCtl";
 
 	public String GET_MARKSHEET_CTL = APP_CONTEXT + "/ctl/GetMarksheetCtl";
 

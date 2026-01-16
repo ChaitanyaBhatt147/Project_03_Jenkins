@@ -163,9 +163,9 @@ public class LoginCtl extends BaseCtl {
 
 			} catch (ApplicationException | JDBCConnectionException e) {
 				log.error(e);
-//				ServletUtility.handleException(e, request, response);
-				ServletUtility.setErrorMessage("MySQL container is down. Communication failed!!", request);
-				ServletUtility.forward(getView(), request, response);
+				ServletUtility.handleException(e, request, response);
+//				ServletUtility.setErrorMessage("MySQL container is down. Communication failed!!", request);
+//				ServletUtility.forward(getView(), request, response);
 				return;
 			}
 

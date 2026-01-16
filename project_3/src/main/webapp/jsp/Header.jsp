@@ -212,14 +212,14 @@
 				<li class="nav-item dropdown" style="padding-left: 5px"><a
 					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 					role="button" data-toggle="dropdown" aria-haspopup="true"
-					aria-expanded="false"> <font style="color: white;">Product
+					aria-expanded="false"> <font style="color: white;">Hostel
 					</font></a>
 
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-						<a class="dropdown-item" href="<%=ORSView.PRODUCT_CTL%>"><i
-							class="fa fa-file"></i>Add Product</a> <a class="dropdown-item"
-							href="<%=ORSView.PRODUCT_LIST_CTL%>"><i class="fa fa-paste"></i>Product
+						<a class="dropdown-item" href="<%=ORSView.HOSTEL_ROOM_CTL%>"><i
+							class="fa fa-file"></i>Add Hostel</a> <a class="dropdown-item"
+							href="<%=ORSView.HOSTEL_ROOM_LIST_CTL%>"><i class="fa fa-paste"></i>Hostel
 							List</a>
 					</div></li>
 
