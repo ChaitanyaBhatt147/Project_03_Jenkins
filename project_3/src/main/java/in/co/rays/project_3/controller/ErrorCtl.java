@@ -37,37 +37,15 @@ public class ErrorCtl extends BaseCtl {
 	private void process(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServletException {
 
-
-		// 1️⃣ container attribute (standard)
 		String lastCtl = (String) request.getAttribute("javax.servlet.error.request_uri");
-
-		// 2️⃣ fallback from FrontController
-		if (lastCtl == null) {
-			lastCtl = (String) request.getAttribute("lastCtl");
-		}
-
-		Throwable ex = (Throwable) request.getAttribute("javax.servlet.error.exception");
-
-		System.out.println("Error on controller: " + lastCtl);
-
 		String view = getViewFromCtl(lastCtl);
 
-		// ✅ sirf preload controllers ko list do
-//		if (ex instanceof ApplicationException && isPreloadController(lastCtl)) {
-//
-//			ApplicationException ae = (ApplicationException) ex;
-//
-//			if (ae.getDemoList() != null) {
-//				ServletUtility.setList(ae.getDemoList(), request);
-//
-//			}
-//		}
+
 		ServletUtility.setErrorMessage("Database server down!!!", request);
-		// ===== LIST PAGE SAFETY =====
 		if (lastCtl != null && lastCtl.contains("ListCtl")) {
 
 		    if (ServletUtility.getList(request) == null) {
-		        ServletUtility.setList(new java.util.ArrayList(), request);
+		    	ServletUtility.setList(new java.util.ArrayList(), request);
 		    }
 
 		    request.setAttribute("pageNo", 1);
@@ -76,11 +54,10 @@ public class ErrorCtl extends BaseCtl {
 		}
 
 
-		// ✅ ALWAYS JSP — NEVER controller
 		ServletUtility.forward(view, request, response);
 
 	}
-
+	
 	private String getViewFromCtl(String ctl) {
 
 		if (ctl == null)
@@ -175,14 +152,8 @@ public class ErrorCtl extends BaseCtl {
 		return ORSView.ERROR_VIEW;
 	}
 
-//	private boolean isPreloadController(String ctl) {
-//
-//		if (ctl == null)
-//			return false;
-//
-//		return ctl.endsWith(ORSView.USER_CTL) || ctl.endsWith(ORSView.ROLE_CTL) || ctl.endsWith(ORSView.COLLEGE_CTL)
-//				|| ctl.endsWith(ORSView.COURSE_CTL) || ctl.endsWith(ORSView.FACULTY_CTL);
-//	}
+
+
 
 	@Override
 	protected String getView() {
