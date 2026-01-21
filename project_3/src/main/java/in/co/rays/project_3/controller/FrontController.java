@@ -32,6 +32,9 @@ public class FrontController implements Filter {
 		HttpServletRequest request = (HttpServletRequest) req;
 		HttpServletResponse response = (HttpServletResponse) resp;
 		
+		// save original controller path for error handling
+		request.setAttribute("ORIGINAL_CTL", request.getRequestURI());
+		
 		HttpSession session = request.getSession();
 		
 		String uri=request.getRequestURI();

@@ -25,13 +25,18 @@ i.css {
 	 background-color: #ebebe0;
 }
 .hm {
-	background-image: url('<%=ORSView.APP_CONTEXT%>/img/profile.jpg');
+	background-image: url('<%=ORSView.APP_CONTEXT%>/img/myProfile.png');
 	background-repeat: no-repeat;
 	background-attachment: fixed; 
 	background-size: cover;
 	padding-top: 70px;
 	
 	
+}
+.grad {
+	background-image: linear-gradient(to bottom right, #ffd3ac, #f79d65);
+	background-repeat: no-repeat;
+	background-size: 100%;
 }
 </style>
 </head>
@@ -49,7 +54,7 @@ i.css {
 				<!-- Grid column -->
 				<div class="col-md-4 mb-4"></div>
 				<div class="col-md-4 mb-4">
-					<div class="card">
+					<div class="card grad">
 						<div class="card-body">
 
 							<h3 class="text-center text-primary">
@@ -103,7 +108,7 @@ i.css {
         <div class="input-group-prepend">
           <div class="input-group-text"><i class="fa fa-address-card grey-text" style="font-size: 1rem;"></i> </div>
         </div>
-        <input type="text"  class="form-control" name="emailId" 
+        <input type="text" style="background-color: white" class="form-control" name="emailId" 
 									placeholder=" email Id" readonly="readonly"
 									value="<%=DataUtility.getStringData(dto.getLogin())%>">
       </div>
@@ -172,7 +177,7 @@ i.css {
         <div class="input-group-prepend">
           <div class="input-group-text"><i class="fa fa-calendar grey-text" style="font-size: 1rem;"></i> </div>
         </div>
-        <input type="text" id="datepicker" name="dob" class="form-control" placeholder="Date Of Birth" readonly="readonly" value="<%=DataUtility.getDateString(dto.getDob())%>">
+        <input type="text" id="datepicker" name="dob" style="background-color: white" class="form-control" placeholder="Date Of Birth" readonly="readonly" value="<%=DataUtility.getDateString(dto.getDob())%>">
       </div>
     </div>	
 	<font color="red" class="pl-sm-5"> <%=ServletUtility.getErrorMessage("dob", request)%></font></br>

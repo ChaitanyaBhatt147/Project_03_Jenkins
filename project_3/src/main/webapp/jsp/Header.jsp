@@ -217,9 +217,9 @@
 
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-						<a class="dropdown-item" href="<%=ORSView.HOSTEL_ROOM_CTL%>"><i
+						<a class="dropdown-item" href="<%=ORSView.HOSTEL_CTL%>"><i
 							class="fa fa-file"></i>Add Hostel</a> <a class="dropdown-item"
-							href="<%=ORSView.HOSTEL_ROOM_LIST_CTL%>"><i class="fa fa-paste"></i>Hostel
+							href="<%=ORSView.HOSTEL_LIST_CTL%>"><i class="fa fa-paste"></i>Hostel
 							List</a>
 					</div></li>
 

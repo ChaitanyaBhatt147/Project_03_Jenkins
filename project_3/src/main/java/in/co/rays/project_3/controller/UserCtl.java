@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
+import org.hibernate.exception.JDBCConnectionException;
 
 import in.co.rays.project_3.dto.BaseDTO;
 import in.co.rays.project_3.dto.RoleDTO;
@@ -42,8 +43,9 @@ public class UserCtl extends BaseCtl {
 
 		RoleModelInt model = ModelFactory.getInstance().getRoleModel();
 
+		List list;
 		try {
-			List list = model.list();
+			list = model.list();
 			Iterator it = list.iterator();
 
 			while (it.hasNext()) {
@@ -55,11 +57,12 @@ public class UserCtl extends BaseCtl {
 			}
 
 			request.setAttribute("roleList", list);
-
-		} catch (Exception e) {
+		} catch (JDBCConnectionException e) {
+			ServletUtility.setErrorMessage("Database server down!!!", request);
+		} 
+		catch (ApplicationException e) {
 			e.printStackTrace();
 		}
-
 	}
 
 	protected boolean validate(HttpServletRequest request) {

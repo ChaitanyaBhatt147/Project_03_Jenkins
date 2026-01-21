@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.log4j.Logger;
+import org.hibernate.exception.JDBCConnectionException;
 
 import in.co.rays.project_3.dto.CollegeDTO;
 import in.co.rays.project_3.exception.ApplicationException;
@@ -17,6 +18,7 @@ import in.co.rays.project_3.util.JDBCDataSource;
 
 /**
  * JDBC implements of College model
+ * 
  * @author Chaitanya Bhatt
  *
  */
@@ -48,11 +50,11 @@ public class CollegeModelJDBCImpl implements CollegeModelInt {
 	public long add(CollegeDTO dto) throws ApplicationException, DuplicateRecordException {
 		Connection conn = null;
 		long pk = 0;
-		 CollegeDTO duplicateCollegeName = fingByName(dto.getName());
+		CollegeDTO duplicateCollegeName = fingByName(dto.getName());
 
-	        if (duplicateCollegeName != null) {
-	            throw new DuplicateRecordException("College Name already exists");
-	        }
+		if (duplicateCollegeName != null) {
+			throw new DuplicateRecordException("College Name already exists");
+		}
 		try {
 			conn = JDBCDataSource.getConnection();
 			pk = nextPK();
@@ -119,11 +121,11 @@ public class CollegeModelJDBCImpl implements CollegeModelInt {
 		Connection conn = null;
 		CollegeDTO dtoExist = fingByName(dto.getName());
 
-        // Check if updated College already exist
-        if (dtoExist != null && dtoExist.getId() != dto.getId()) {
+		// Check if updated College already exist
+		if (dtoExist != null && dtoExist.getId() != dto.getId()) {
 
-            throw new DuplicateRecordException("College is already exist");
-        }
+			throw new DuplicateRecordException("College is already exist");
+		}
 		try {
 			conn = JDBCDataSource.getConnection();
 			PreparedStatement ps = conn.prepareStatement(
@@ -192,6 +194,8 @@ public class CollegeModelJDBCImpl implements CollegeModelInt {
 				list.add(dto);
 			}
 			rs.close();
+		} catch (JDBCConnectionException e) {
+			throw e;
 		} catch (Exception e) {
 			log.error("Database Exception..", e);
 			throw new ApplicationException("Exception : Exception in getting list of users");

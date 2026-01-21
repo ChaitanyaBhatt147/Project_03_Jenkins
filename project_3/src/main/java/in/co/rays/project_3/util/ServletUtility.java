@@ -59,8 +59,11 @@ public class ServletUtility {
      */
     public static void handleException(Exception e, HttpServletRequest request,
             HttpServletResponse response) throws IOException, ServletException {
-        request.setAttribute("exception", e);
-        response.sendRedirect(ORSView.ERROR_CTL);
+    	String lastCtl = (String) request.getAttribute("ORIGINAL_CTL");
+    	request.setAttribute("lastCtl", lastCtl);
+    	request.setAttribute("javax.servlet.error.exception", e);
+    	RequestDispatcher rd = request.getRequestDispatcher(ORSView.ERROR_CTL);
+        rd.forward(request, response);
 
     }
 
@@ -224,8 +227,8 @@ public class ServletUtility {
      * @return
      */
     public static int getPageNo(HttpServletRequest request) {
-    	 int a=  (Integer) request.getAttribute("pageNo");
-         return a;
+        Integer a = (Integer) request.getAttribute("pageNo");
+        return (a == null) ? 1 : a;   // default 1
     }
 
     /**
@@ -245,8 +248,8 @@ public class ServletUtility {
      * @return
      */
     public static int getPageSize(HttpServletRequest request) {
-        int pageSize= (Integer) request.getAttribute("pageSize");
-        return pageSize;
-     }
+        Integer a = (Integer) request.getAttribute("pageSize");
+        return (a == null) ? 10 : a;  // default 10
+    }
    
 }

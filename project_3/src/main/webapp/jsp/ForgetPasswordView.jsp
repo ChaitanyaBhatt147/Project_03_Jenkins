@@ -22,7 +22,7 @@ i.css {
 }
 
 .p4 {
-	background-image: url('<%=ORSView.APP_CONTEXT%>/img/Linkme.jpg');
+	background-image: url('<%=ORSView.APP_CONTEXT%>/img/forget.png');
 	background-repeat: no-repeat;
 	background-size: 100%;
 	padding-top: 120px;
@@ -36,6 +36,11 @@ i.css {
 	7px
 	#001a33;
 }
+}
+.grad {
+	background-image: linear-gradient(to bottom right, #ffd3ac, #f79d65);
+	background-repeat: no-repeat;
+	background-size: 100%;
 }
 </style>
 </head>
@@ -52,12 +57,12 @@ i.css {
 				<!-- Grid column -->
 				<div class="col-md-4"></div>
 				<div class="col-md-4">
-					<div class="card input-group-addon">
+					<div class="card input-group-addon grad">
 						<div class="card-body">
 							<h3 class="text-center default-text text-primary">Forget
 								Your Password?</h3>
-							<p class="text-center default-text text-info"
-								style="font-size: 11px;">Submit your Email Address and we
+							<p class="text-center default-text text-primary"
+								style="font-size: 12px;">Submit your Email Address and we
 								will Send You password</p>
 
 							<H4 align="center">

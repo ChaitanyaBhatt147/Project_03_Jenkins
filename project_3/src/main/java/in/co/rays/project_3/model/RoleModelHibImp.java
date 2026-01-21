@@ -7,6 +7,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
+import org.hibernate.exception.JDBCConnectionException;
 
 import in.co.rays.project_3.dto.RoleDTO;
 import in.co.rays.project_3.exception.ApplicationException;
@@ -83,7 +84,11 @@ public class RoleModelHibImp implements RoleModelInt{
 			session.update(dto);
 			tx.commit();
 
-		} catch (HibernateException e) {
+		}catch (JDBCConnectionException e) {
+			// TODO: handle exception
+		}
+		catch (HibernateException e) {
+			
 			e.printStackTrace();
 			// TODO: handle exception
 			if (tx != null) {
@@ -115,7 +120,11 @@ public class RoleModelHibImp implements RoleModelInt{
 				criteria.setMaxResults(pageSize);
 			}
 			list = criteria.list();
-		} catch (HibernateException e) {
+		} catch (JDBCConnectionException e) {
+			
+			throw e;
+		}
+		catch (HibernateException e) {
 
 			throw new ApplicationException("Exception : Exception in  role list");
 		} finally {

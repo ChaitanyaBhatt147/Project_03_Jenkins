@@ -7,6 +7,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
+import org.hibernate.exception.JDBCConnectionException;
 
 import in.co.rays.project_3.dto.CollegeDTO;
 import in.co.rays.project_3.dto.CourseDTO;
@@ -163,7 +164,10 @@ public class FacultyModelHibImp implements FacultyModelInt{
 				criteria.setMaxResults(pageSize);
 			}
 			list = criteria.list();
-		} catch (HibernateException e) {
+		}catch (JDBCConnectionException e) {
+			throw e;
+		}
+		catch (HibernateException e) {
 
 			throw new ApplicationException("Exception : Exception in  faculty list");
 		} finally {
