@@ -129,5 +129,13 @@ public interface ORSView {
 	public String FORGET_PASSWORD_CTL = APP_CONTEXT + "/ForgetPasswordCtl";
 
 	public String MARKSHEET_MERIT_LIST_CTL = APP_CONTEXT + "/ctl/MarksheetMeritListCtl";
+	
+	// Flight Views
+	public String FLIGHT_VIEW = PAGE_FOLDER + "/FlightView.jsp";
+	public String FLIGHT_LIST_VIEW = PAGE_FOLDER + "/FlightListView.jsp";
 
+	// Flight Controllers
+	public String FLIGHT_CTL = APP_CONTEXT + "/ctl/FlightCtl";
+	public String FLIGHT_LIST_CTL = APP_CONTEXT + "/ctl/FlightListCtl";
+	
 }

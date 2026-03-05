@@ -223,6 +223,36 @@
 							List</a>
 					</div></li>
 
+				<!-- Flight Menu -->
+				<li class="nav-item dropdown" style="padding-left: 5px"><a
+					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+					role="button" data-toggle="dropdown" aria-haspopup="true"
+					aria-expanded="false"> <font style="color: white;">Flight</font>
+				</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item" href="<%=ORSView.FLIGHT_CTL%>"> <i
+							class="fa fa-plane"></i> Add Flight
+						</a> <a class="dropdown-item" href="<%=ORSView.FLIGHT_LIST_CTL%>">
+							<i class="fa fa-list"></i> Flight List
+						</a>
+					</div></li>
+
+				<li class="nav-item dropdown" style="padding-left: 5px"><a
+					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+					role="button" data-toggle="dropdown" aria-haspopup="true"
+					aria-expanded="false"> <font style="color: white;">Salary</font>
+				</a>
+
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+						<a class="dropdown-item" href="<%=ORSView.SALARY_CTL%>"> <i
+							class="fa fa-money-bill"></i> Add Salary
+						</a> <a class="dropdown-item" href="<%=ORSView.SALARY_LIST_CTL%>">
+							<i class="fa fa-list"></i> Salary List
+						</a>
+
+					</div></li>
+
 				<%
 					}
 					}

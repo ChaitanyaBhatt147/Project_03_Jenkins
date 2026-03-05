@@ -47,11 +47,11 @@ public class CourseCtl extends BaseCtl {
 		if (DataValidator.isNull(request.getParameter("description"))) {
 			request.setAttribute("description", PropertyReader.getValue("error.require", "Description"));
 			pass = false;
-		} /*
-			 * else if (!DataValidator.isName(request.getParameter("description"))) {
-			 * request.setAttribute("description", PropertyReader.getValue("error.name",
-			 * "Description")); pass = false; }
-			 */
+		} else if (!DataValidator.isName(request.getParameter("description"))) {
+			request.setAttribute("description", PropertyReader.getValue("error.name", "Description"));
+			pass = false;
+		}
+
 		if (DataValidator.isNull(request.getParameter("duration"))) {
 			request.setAttribute("duration", PropertyReader.getValue("error.require", "Duration"));
 			pass = false;

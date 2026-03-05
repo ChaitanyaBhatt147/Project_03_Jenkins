@@ -57,8 +57,6 @@ public class UserCtl extends BaseCtl {
 			}
 
 			request.setAttribute("roleList", list);
-		} catch (JDBCConnectionException e) {
-			ServletUtility.setErrorMessage("Database server down!!!", request);
 		} 
 		catch (ApplicationException e) {
 			e.printStackTrace();

@@ -47,7 +47,7 @@ public class TimeTableCtl extends BaseCtl {
 			request.setAttribute("courseList", l);
 			request.setAttribute("subjectList", l1);
 
-		} catch (Exception e) {
+		} catch (ApplicationException e) {
 			log.error(e);
 		}
 	}

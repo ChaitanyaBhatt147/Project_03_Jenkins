@@ -201,7 +201,9 @@ public class CourseModelHibImp implements CourseModelInt {
 	            }
 
 	            list = criteria.list();
-	        } catch (HibernateException e) {
+	        }catch (JDBCConnectionException e) {
+				throw e;
+			}  catch (HibernateException e) {
 	            
 	            throw new ApplicationException("Exception in course search");
 	        } finally {

@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 28-Feb-2026, 12:01:58 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <subclass name="in.co.rays.project_3.dto.HostelDTO" extends="in.co.rays.project_3.dto.BaseDTO" discriminator-value="HostelDTO" lazy="false">
+        <property name="id" type="java.lang.Long">
+            <column name="ID" />
+        </property>
+        <property name="fees" type="java.lang.String">
+            <column name="FEES" />
+        </property>
+        <property name="occupancy" type="java.lang.String">
+            <column name="OCCUPANCY" />
+        </property>
+        <property name="hostelName" type="java.lang.String">
+            <column name="HOSTELNAME" />
+        </property>
+        <property name="numberOfRooms" type="int">
+            <column name="NUMBEROFROOMS" />
+        </property>
+        <property name="washroomStatus" type="java.lang.String">
+            <column name="WASHROOMSTATUS" />
+        </property>
+        <property name="roomType" type="java.lang.String">
+            <column name="ROOMTYPE" />
+        </property>
+        <property name="capacity" type="int">
+            <column name="CAPACITY" />
+        </property>
+        <property name="status" type="java.lang.String">
+            <column name="STATUS" />
+        </property>
+    </subclass>
+</hibernate-mapping>

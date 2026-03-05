@@ -28,6 +28,24 @@ public final class ModelFactory {
 		}
 		return mFactory;
 	}
+	
+	
+	public FlightModelInt getFlightModel() {
+
+		FlightModelInt flightModel = (FlightModelInt) modelCache.get("flightModel");
+
+		if (flightModel == null) {
+
+			if ("Hibernate".equals(DATABASE)) {
+				flightModel = new FlightModelHibImp();
+			}
+
+
+			modelCache.put("flightModel", flightModel);
+		}
+
+		return flightModel;
+	}
 
 	public HostelModelInt getHostelModel() {
 
